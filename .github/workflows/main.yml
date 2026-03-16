@@ -3,7 +3,7 @@ name: Daily Rain Alert
 on:
   schedule:
     # 9:10 AM IST is 3:40 AM UTC
-    - cron: '40 3 * * *'
+    - cron: '35 10 * * *'
   workflow_dispatch: # This allows you to still run it manually for testing
 
 jobs:
