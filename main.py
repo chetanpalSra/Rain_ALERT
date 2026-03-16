@@ -7,12 +7,6 @@ API_KEY = os.environ.get('OWM_API_KEY')
 MY_LAT = 30.748318
 MY_LONG = 76.747047
 OWM_ENDPOINT = "https://api.openweathermap.org/data/2.5/forecast"
-"""
-Think of ast.literal_eval as a "Safe Python Translator." 
-It takes a string that looks like Python code (a "literal") and turns it into an actual Python object
-(like a list, dictionary, number, or tuple).
-"""
-NUMBERS_STR = os.environ.get('NUMBERS', '[]')  #to convert string to list.
 
 account_sid = os.environ.get('ACCOUNT_SID')
 auth_token = os.environ.get('AUTH_TOKEN')
@@ -40,8 +34,13 @@ for i in range(4):
 print(response.json())
 
 if will_rain:
+    """
+   Think of ast.literal_eval as a "Safe Python Translator." 
+   It takes a string that looks like Python code (a "literal") and turns it into an actual Python object
+   (like a list, dictionary, number, or tuple).
+   """
     try:
-        numbers = ast.literal_eval(os.environ.get(NUMBERS_STR))
+        numbers = ast.literal_eval(os.environ.get('NUMBERS'))
         for number in numbers:
             sms_message = client.messages.create(
                 body = 'Bring an umbrella!️☔',
